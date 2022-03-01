@@ -57,7 +57,7 @@ private final Auto m_autocommand = new Auto(m_driveTrain, m_shooter);
   }
 
   /**
-   * Use this method to define your button->command mappings. Buttons can be created by
+   *  Use this method to define your button->command mappings. Buttons can be created by
    * instantiating a {@link GenericHID} or one of its subclasses ({@link
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
@@ -69,12 +69,14 @@ private final Auto m_autocommand = new Auto(m_driveTrain, m_shooter);
     buttonRB.whileHeld(new RunShooter(m_shooter));
     final JoystickButton buttonLB = new JoystickButton(m_manipulator, 5);
     buttonLB.whileHeld(new RunIntakeAndSteer(m_Intake, m_driveTrain, m_joystick));
-    final JoystickButton buttonA = new JoystickButton(m_manipulator, 1);
-    buttonA.whileHeld(new RunLifter(m_Lifter));
+    //final JoystickButton buttonA = new JoystickButton(m_manipulator, 1);
+    //buttonA.whileHeld(new RunLifter(m_Lifter));
     final JoystickButton buttonX = new JoystickButton(m_manipulator, 3);
     buttonX.whenHeld(new RunClimber(m_Climber));
     final JoystickButton buttonY = new JoystickButton(m_manipulator, 4);
     buttonY.whenHeld(new RunClimberBackwards(m_Climber));
+    new JoystickButton(m_manipulator, 1).
+        and(new JoystickButton(m_joystick, 11)).whileActiveOnce(new RunLifter(m_Lifter));
   }
 
   /**

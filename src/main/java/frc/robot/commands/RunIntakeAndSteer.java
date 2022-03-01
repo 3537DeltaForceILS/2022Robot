@@ -5,9 +5,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.controller.PIDController;
-import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.PIDCommand;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
@@ -30,7 +28,13 @@ public class RunIntakeAndSteer extends PIDCommand {
         // This uses the output
         output -> {
           // Use the output here
-          driveTrainIn.Drive(-joyStickIn.getY(), output);
+          if (driveTrainIn.getlimelightty()<0 && driveTrainIn.getlimelighttx()>-25 && driveTrainIn.getlimelighttx()<25){
+            driveTrainIn.Drive(-joyStickIn.getY(), output);
+          }
+          else{
+            driveTrainIn.Drive(-joyStickIn.getY(), joyStickIn.getZ());
+          }
+          
           intakeIn.spinIntake(1);
         });
         m_Intake = intakeIn;
