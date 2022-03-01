@@ -5,32 +5,30 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Lifter;
 
-public class DriveForwards extends CommandBase {
-  private final DriveTrain m_driveTrain;
-  /** Creates a new DriveForwards. */
-  public DriveForwards(DriveTrain driveTrain) {
-    m_driveTrain = driveTrain;
-    addRequirements(driveTrain);
+public class StopLifter extends CommandBase {
+  private final Lifter m_Lifter;
+  /** Creates a new StopLifter. */
+  public StopLifter(Lifter lifterIn) {
+    m_Lifter = lifterIn;
+    addRequirements(m_Lifter);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    m_Lifter.spinLifter(0);
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    m_driveTrain.Drive(.5, 0);
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    m_driveTrain.Drive(0, 0);
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

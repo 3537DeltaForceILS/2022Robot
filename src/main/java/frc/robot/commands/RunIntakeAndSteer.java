@@ -30,7 +30,7 @@ public class RunIntakeAndSteer extends PIDCommand {
         // This uses the output
         output -> {
           // Use the output here
-          driveTrainIn.Drive(joyStickIn.getY(), output);
+          driveTrainIn.Drive(-joyStickIn.getY(), output);
           intakeIn.spinIntake(1);
         });
         m_Intake = intakeIn;
