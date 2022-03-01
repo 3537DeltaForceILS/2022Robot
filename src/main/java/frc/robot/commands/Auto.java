@@ -20,8 +20,8 @@ public class Auto extends SequentialCommandGroup {
     m_Shooter = shooterIn;
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new DriveSetSpeed(m_driveTrain, -.6).withTimeout(.5),
-                new DriveSetSpeed(m_driveTrain, .5).withTimeout(.75),
+    addCommands(new DriveSetSpeed(m_driveTrain, -.8).withTimeout(.5),
+                new DriveSetSpeed(m_driveTrain, .5).withTimeout(1.4),
                 new DriveSetSpeed(m_driveTrain, 0).withTimeout(1),
                 new RunShooter(m_Shooter).withTimeout(1),
                 new StopShooter(m_Shooter).withTimeout(1),
